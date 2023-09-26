@@ -1,0 +1,23 @@
+---
+
+- name: Looping through variable
+  hosts: Cisco_S
+  gather_facts: false
+  connection: network_cli
+
+
+
+  tasks:
+    - name: Loop to set NTP servers
+      vars: 
+        myServers:
+          - "1.1.1.1"
+          - "2.2.2.2"
+          - "3.3.3.3"
+          - "4.4.4.4"
+      cisco.ios.ios_ntp_global:
+        config:
+          peers:
+            - peer: "{{ item }}"
+      loop: "{{ myServers }}"
+        

@@ -1,0 +1,13 @@
+---
+
+- name: Accessng Complex variables
+  hosts: Cisco_S
+  gather_facts: false
+  connection: network_cli
+
+
+
+  tasks:
+    - name: Access vars
+      debug:
+        msg: "{{ ospf.networks[0] }}"

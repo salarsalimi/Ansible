@@ -1,0 +1,19 @@
+---
+
+- name: Check gathering facts
+  hosts: Cisco_N
+  gather_facts: false
+  connection: network_cli
+
+
+
+  tasks:
+    - name: Gather IOS facts
+      ios_facts:
+        gather_subset: interfaces  # Specify that you want to gather interface information
+    - name: facts gathering
+      debug:
+        msg: "interface {{ item.key }} has ip address of {{ item.value.ipv4[0].address }}"
+      loop: "{{ ansible_facts.net_interfaces | dict2items }}"
+ #     when: item.value.ipv4[0].address != None
+        
