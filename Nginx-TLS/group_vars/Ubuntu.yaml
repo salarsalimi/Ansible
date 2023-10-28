@@ -1,0 +1,4 @@
+ansible_user: "Usr"
+ansible_password: "pass"
+ansible_become: True
+ansible_become_password: "enable_pass"
