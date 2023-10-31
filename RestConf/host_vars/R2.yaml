@@ -1,0 +1,19 @@
+---
+OSPF_Conf:
+  Cisco-IOS-XE-native:router:
+    Cisco-IOS-XE-ospf:ospf:
+      - id: 1
+        router-id: 2.2.2.2
+        network:
+          - ip: 2.2.2.2
+            mask: 0.0.0.0
+            area: 0
+          - ip: 172.16.2.0
+            mask: 0.0.0.255
+            area: 0
+          - ip: 192.168.55.0
+            mask: 0.0.0.255
+            area: 0
+
+host: R2
+            
