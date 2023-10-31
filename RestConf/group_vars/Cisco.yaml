@@ -1,0 +1,3 @@
+ansible_user: User
+ansible_password: Pass
+ansible_become: true
