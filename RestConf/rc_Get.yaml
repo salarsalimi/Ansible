@@ -1,0 +1,20 @@
+- name: "rc1 to get information"
+  hosts: R1
+  connection: local
+
+  tasks:
+    - name: "Getting information"
+      uri:
+        url: "https://{{ ansible_host }}/restconf/data/native/router"
+        url_username: user
+        url_password: pass
+        method: GET
+        return_content: true
+        headers:
+          Accept: "application/yang-data+json"
+        validate_certs: false
+      register: output
+
+    - name: "print output"
+      debug:
+        msg: " {{ output.json }} "
